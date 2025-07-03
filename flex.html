@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day -1</title>
+    <style>
+        .flex-container {
+            height: 100vh;
+            display: flex;
+            border: 1ps solid black;
+            height: 100vh;
+            background-color: #0e0e0e;
+            flex-wrap: wrap;   
+            flex-direction: row;
+            text-align: center;
+            align-content: flex-start;
+        }
+        .flex-item {
+            background-color: #b72828;
+            color: white;
+            padding: 5px;
+            margin: 1px;
+            border-radius: 5px;
+            font-size: 20px;
+            flex-wrap:wrap;
+            text-align: center;
+            height: 100px;
+            width: 100px;
+        }
+        .flex-item:last-child{
+           justify-items: end;        }
+        .flex-item:nth-child(odd) {
+            background-color: #540e0e;
+        }
+        .flex-item:nth-child(even) {
+            background-color: #b72828;
+        }
+        
+       
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item"> 1</div>
+        <div class="flex-item"> 2</div>
+        <div class="flex-item"> 3</div>
+        <div class="flex-item"> 4</div>
+        <div class="flex-item"> 5</div>
+        <div class="flex-item"> 6</div>
+        <div class="flex-item"> 7</div>     
+        <div class="flex-item"> 8</div>
+        <div class="flex-item"> 9</div>     
+        <div class="flex-item"> 10</div>
+        
+
+    </div>
+</body>
+</html>

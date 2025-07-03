@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        .grid-container {
+            height: 100vh;
+            display:grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 200px 200px 200px;  
+            grid-gap: 7px;
+        }
+        .grid-item {
+            background-color: #b21414;
+            color:#b21414;
+            padding: 20px;
+            margin: 1px;
+            justify-content: center;
+            border-radius: 5px;
+        }
+        .grid-item:hover {
+            background-color: #540e0e;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            transform: scale(1.1);
+            transition: transform 0.9s ease-in-out;
+        }
+
+        .grid-body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #baa1a1;
+            height: 100vh;
+            margin: 0;
+        }
+        .grid-item:nth-child(1){
+            grid-column-start: 1;
+            grid-column-end: 5;
+            
+        }
+        .grid-item:nth-child(2){
+           grid-row-start: 2;
+           grid-row-end: 4;
+        }
+      
+    </style>
+</head>
+<body class="grid-body">
+    <div class="grid-container">
+        <div class="grid-item"> 1</div>
+        <div class="grid-item"> 2</div>
+        <div class="grid-item"> 3</div>
+        <div class="grid-item"> 4</div>
+        <div class="grid-item"> 5</div>
+        <div class="grid-item"> 6</div>
+        <div class="grid-item"> 7</div>
+        <div class="grid-item"> 8</div>
+        <div class="grid-item"> 9</div>
+
+    </div>
+    
+</body>
+</html>

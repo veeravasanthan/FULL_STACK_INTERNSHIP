@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guess My Number</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #8e44ad, #3498db);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      font-size: 3rem;
+    }
+    .game-box {
+      background-color: rgba(0,0,0,0.2);
+      padding: 30px;
+      border-radius: 15px;
+      display: inline-block;
+      margin-top: 30px;
+    }
+    input[type="number"] {
+      padding: 10px;
+      font-size: 1rem;
+      width: 60px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #27ae60;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #219150;
+    }
+    .message {
+      margin-top: 20px;
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎲 Guess My Number!</h1>
+  <p>I'm thinking of a number between <strong>1 and 100</strong>. Can you guess it?</p>
+
+  <div class="game-box">
+    <input type="number" id="guessInput" min="1" max="100">
+    <button onclick="checkGuess()">Submit</button>
+    <div class="message" id="message"></div>
+  </div>
+
+ <script>
+  let secretNumber = Math.floor(Math.random() * 100) + 1;
+  let attempts = 0;
+
+  const guessInput = document.getElementById("guessInput");
+  const messageEl = document.getElementById("message");
+
+  function checkGuess() {
+    const guess = Number(guessInput.value);
+    guessInput.value = "";
+    attempts++;
+
+    if (!guess || guess < 1 || guess > 100) {
+      messageEl.textContent = "⛔ Please enter a number between 1 and 100.";
+      return;
+    }
+
+    if (guess === secretNumber) {
+      messageEl.textContent = `🎉 Correct! You guessed it in ${attempts} tries! 🎯`;
+      document.body.style.background = "#2ecc71";
+      guessInput.disabled = true;
+      showRestartButton();
+    } else if (guess < secretNumber) {
+      messageEl.textContent = "📈 Too low. Try again!";
+    } else {
+      messageEl.textContent = "📉 Too high. Try again!";
+    }
+  }
+
+  function showRestartButton() {
+    const button = document.createElement("button");
+    button.textContent = "🔁 Play Again";
+    button.style.marginTop = "20px";
+    button.onclick = () => location.reload();
+    document.querySelector(".game-box").appendChild(button);
+  }
+  guessInput.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      checkGuess();
+    }
+  });
+</script>
+
+
+</body>
+</html>
